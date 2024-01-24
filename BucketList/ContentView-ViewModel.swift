@@ -13,12 +13,12 @@ import LocalAuthentication
 extension ContentView {
     @Observable
     final class ViewModel {
+        let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
+        
         private(set) var locations: [Location]
         var selectedPlace: Location?
         var isUnlocked = false
-        
-        let savePath = URL.documentsDirectory.appending(path: "SavedPlaces")
-        
+                
         init() {
             do {
                 let data = try Data(contentsOf: savePath)
